@@ -17,7 +17,6 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
  *
  * versions prior to Spring Boot 2.7.0
  */
-//@Configuration
 //@EnableWebSecurity
 @RequiredArgsConstructor
 public class SecurityConfigOld extends WebSecurityConfigurerAdapter {
