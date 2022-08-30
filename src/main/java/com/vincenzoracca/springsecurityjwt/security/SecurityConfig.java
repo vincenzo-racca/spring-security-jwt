@@ -17,7 +17,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 /**
  * Created by Vincenzo Racca
  *
- * Spring Security Config with version before 2.7
+ * versions the same or later than Spring Boot 2.7.0
  */
 @Configuration
 @EnableWebSecurity
