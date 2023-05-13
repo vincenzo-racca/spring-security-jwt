@@ -9,15 +9,15 @@ import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 /**
  * Created by Vincenzo Racca
- *
- * versions the same or later than Spring Boot 2.7.0
+ * versions the same or later than Spring Boot 2.7.0.
+ * If you use Spring Boot 2, replace jakarta package with jakarta package and
+ * requestMatchers method with antMatchers method
  */
 @Configuration
 @RequiredArgsConstructor
@@ -36,8 +36,8 @@ public class SecurityConfig {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeHttpRequests((authz) -> authz
-                        .antMatchers(HttpMethod.POST, "/login/**").permitAll()
-                        .antMatchers(HttpMethod.POST, "/users/**").hasAuthority("ROLE_ADMIN")
+                        .requestMatchers(HttpMethod.POST, "/login/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/users/**").hasAuthority("ROLE_ADMIN")
                         .anyRequest().authenticated()
                 )
                 .addFilter(new CustomAuthenticationFilter(authenticationManager))

@@ -4,12 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
-import static javax.persistence.GenerationType.AUTO;
+import static jakarta.persistence.GenerationType.AUTO;
 
 /**
  * Created By Vincenzo Racca
+ * If you use Spring Boot 2, replace jakarta package with jakarta package
  */
 @Entity
 @Table(name = "ROLES")

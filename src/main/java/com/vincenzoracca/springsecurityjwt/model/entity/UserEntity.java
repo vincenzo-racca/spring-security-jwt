@@ -4,16 +4,17 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import static javax.persistence.FetchType.*;
-import static javax.persistence.GenerationType.*;
+import static jakarta.persistence.FetchType.*;
+import static jakarta.persistence.GenerationType.*;
 
 /**
  * Created by Vincenzo Racca
+ * If you use Spring Boot 2, replace jakarta package with jakarta package
  */
 @Entity
 @Table(name = "USERS")
