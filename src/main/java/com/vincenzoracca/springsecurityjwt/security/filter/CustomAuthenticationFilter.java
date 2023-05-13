@@ -22,6 +22,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import static com.vincenzoracca.springsecurityjwt.util.CustomSecurityHeaders.ACCESS_TOKEN;
+import static com.vincenzoracca.springsecurityjwt.util.CustomSecurityHeaders.REFRESH_TOKEN;
 import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
 import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
 
@@ -73,8 +75,8 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
         String accessToken = JwtUtil.createAccessToken(user.getUsername(), request.getRequestURL().toString(),
                 user.getAuthorities().stream().map(GrantedAuthority::getAuthority).collect(Collectors.toList()));
         String refreshToken = JwtUtil.createRefreshToken(user.getUsername());
-        response.addHeader("access_token", accessToken);
-        response.addHeader("refresh_token", refreshToken);
+        response.addHeader(ACCESS_TOKEN.getValue(), accessToken);
+        response.addHeader(REFRESH_TOKEN.getValue(), refreshToken);
     }
 
     @Override
